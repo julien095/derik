@@ -1,0 +1,81 @@
+function aleDezyem() {
+    if (siyati.value === "" || non.value === "" || imel.value === "") {
+        mesaj.textContent = "Ranpli tout chan yo";
+    } else {
+        mesaj.textContent = "";
+        premye.style.display = "none";
+        dezyem.style.display = "block";
+    }
+}
+
+function aleTwayem() {
+    if (itilizate.value === "" || modpas.value === "" || konfimasyon.value === "") {
+        mesaj.textContent = "Ranpli tout chan yo";
+    } else if (modpas.value !== konfimasyon.value) {
+        mesaj.textContent = "Modpas yo dwe menm, tanpri";
+    } else {
+        mesaj.textContent = "";
+        dezyem.style.display = "none";
+        twazyem.style.display = "block";
+    }
+}
+
+function tounenPremye() {
+    mesaj.textContent = "";
+    premye.style.display = "block";
+    dezyem.style.display = "none";
+}
+
+function tounenDezyem() {
+    mesaj.textContent = "";
+    dezyem.style.display = "block";
+    twazyem.style.display = "none";
+}
+
+function enskri() {
+    if (telefon.value === "" || vil.value === "" || peyi.value === "") {
+        mesaj.textContent = "Ranpli tout chan yo";
+    } else {
+        mesaj.textContent = "";
+        reyisi.textContent = "Enskripsyon fet avek sikse";
+
+        setTimeout(function() {
+            fomEnskripsyon.submit();
+        }, 3000);
+    }
+}
+
+const bouton = document.getElementById("whatsapp")
+
+bouton.addEventListener("click", function(){
+    const numero = "50947269168"
+    const message = "Mwen vle plis enfomasyon sou sit sa"
+    const link =
+    "https://wa.me/"
+    + numero
+    + "?text="
+    + encodeURIComponent(message)
+
+    window.open(link, "blank");
+});
+
+ const kesyon = document.querySelectorAll(".kesyon");
+
+kesyon.forEach(function(kesyonAn) {
+
+    kesyonAn.addEventListener("click", function() {
+
+        const repons = kesyonAn.nextElementSibling;
+        const siy = kesyonAn.querySelector(".siy");
+
+        repons.classList.toggle("actif");
+
+        if (repons.classList.contains("actif")) {
+            siy.textContent = "-";
+        } else {
+            siy.textContent = "+";
+        }
+
+    });
+
+});
